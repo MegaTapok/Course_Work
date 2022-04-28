@@ -23,7 +23,7 @@ public class KursApplication {
 
 		Search req = new Search("7d1f27c7099944e99b8fbb618f7cb2e7");
 		req.worldNews(NEWS_SOURCE, "&sortBy=popularity&language=ru&apiKey=");
-		req.localNews(NEWS_SOURCE,"country=ru&apiKey=");
+		//req.localNews(NEWS_SOURCE,"country=ru&apiKey=");
 
 	}
 }
