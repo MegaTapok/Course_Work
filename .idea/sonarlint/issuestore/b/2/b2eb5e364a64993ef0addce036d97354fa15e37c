@@ -1,0 +1,16 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘öµÅøÿÿÿÿ
+X	java:S125"<This block of commented-out lines of code should be removed.(Ö×ÈŠ8ê­§Ž‡0
+S
+java:S1128"6Remove this unused import 'org.apache.coyote.Request'.(´™ˆ²8ò­§Ž‡0
+i
+java:S1128"GRemove this unused import 'org.springframework.boot.SpringApplication'.(¯ìÙÿÿÿÿÿ8ò­§Ž‡0
+M
+java:S1128"0Remove this unused import 'java.io.InputStream'.(¹»º8ò­§Ž‡0
+X
+java:S1128	";Remove this unused import 'java.net.MalformedURLException'.(ªËÞˆ8ò­§Ž‡0
+K
+java:S1128
+")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ8ò­§Ž‡0
+U
+java:S1128"8Remove this unused import 'java.util.function.Function'.(»³Íž8ò­§Ž‡0

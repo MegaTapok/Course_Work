@@ -1,0 +1,39 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÿÈºøÿÿÿÿ
+f	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åëÌ
+e	java:S117_"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çùÆ<
+u
+java:S1488_"`Immediately return this expression instead of assigning it to the temporary variable "edit_str".(çùÆ<
+c
+java:S2095d"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(¯Áí%
+d
+java:S20952"IUse try-with-resources or close this "InputStream" in a "finally" clause.(ºÃé°ÿÿÿÿÿ
+l
+java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(ôÝžÕýÿÿÿÿ
+m
+java:S3008"RRename this field "api_key" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è³„ôüÿÿÿÿ
+n
+java:S3008"SRename this field "pick_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã÷Ùßýÿÿÿÿ
+n
+java:S3008"SRename this field "post_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«…‹Îùÿÿÿÿ
+?
+java:S3010"$Remove this assignment of "api_key".(õÙç‰úÿÿÿÿ
+P
+java:S2209"5Change this instance-reference to a static reference.(õÙç‰úÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¼ ô
+N
+java:S1854)"8Remove this useless assignment to local variable "urls".(å…¶ß
+C
+java:S1172'"-Remove this unused method parameter "source".(ð–¦ì
+?
+java:S1481)")Remove this unused "urls" local variable.(å…¶ß
+N	java:S106*"9Replace this use of System.out or System.err by a logger.(¼ ô
+V	java:S125-"<This block of commented-out lines of code should be removed.(æ”íœùÿÿÿÿ
+V	java:S1255"<This block of commented-out lines of code should be removed.(†’†³ýÿÿÿÿ
+b
+java:S1659;"GDeclare "firstindex" and all following declarations on a separate line.(»óð‡ýÿÿÿÿ
+?
+java:S1659<")Declare "results_str" on a separate line.(åëÌ
+M	java:S106E"9Replace this use of System.out or System.err by a logger.(ð÷†T
+N	java:S106M"9Replace this use of System.out or System.err by a logger.(Ô…Ýþ
+V	java:S125W"<This block of commented-out lines of code should be removed.(ãÜÓ§ýÿÿÿÿ

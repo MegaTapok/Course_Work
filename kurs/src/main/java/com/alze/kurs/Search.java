@@ -1,6 +1,7 @@
 package com.alze.kurs;
 
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.String;
@@ -11,20 +12,28 @@ public class Search{
 
     static String api_key;
 
+    static ArrayList<String> pick_url = new ArrayList<>();
+    static ArrayList<String> post_url = new ArrayList<>();
+
     public Search(String api_key){
         this.api_key = api_key;
     }
 
     public void worldNews(String source, String linkpart ) throws IOException {
-
+        int size=0;
         String link = "https://newsapi.org/v2/everything?q="+editor(source)+linkpart+api_key;
-        ArrayList<String> urls = new ArrayList<>();
         System.out.println(link);
         link = gotonews(link);
-        urls = geturl(link);
-        for(int i = 0; i <5; i++) {
-            link = gotonews(urls.get(i));
+        geturl(link);
+        size=post_url.size();
+        for(int i = 0; i <size; i++) {
+            //ссылка на статью
         }
+        size=pick_url.size();
+        for(int i = 0; i <size; i++) {
+            //ссылка на превью
+        }
+
     }
 
     public void localNews(String source, String linkpart) throws IOException {
@@ -32,7 +41,7 @@ public class Search{
         ArrayList<String> urls = new ArrayList<>();
         System.out.println(link);
         link = gotonews(link);
-        urls = geturl(link);
+        geturl(link);
         //link = gotonews(link);
     }
 
@@ -42,24 +51,38 @@ public class Search{
         byte[] buffer = input.readAllBytes();
         String str = new String(buffer);
         //System.out.println(str);
-        //writer(str);
+        writer(str);
         return str;
     }
 
-    ArrayList<String> geturl(String str){
+    void geturl(String str){
         int urlindex,firstindex,secondindex,findindex=0;
-        String newurl = "";
-        ArrayList<String> urls = new ArrayList<>();
-        for(int i = 0; i <5; i++) {
+        String newurl = "", results_str;
+        int results = 0;
+        boolean parity = true;
+
+        firstindex = str.indexOf(":");
+        firstindex = str.indexOf(":", firstindex+1);
+        secondindex = str.indexOf(",",firstindex);
+        results_str = str.substring(firstindex+1,secondindex);
+        results = Integer.parseInt(results_str);
+        System.out.println(results);
+
+        for(int i = 0; i <results*2; i++) {
             urlindex = str.indexOf("url",findindex);
             firstindex = str.indexOf("h", urlindex);
             secondindex = str.indexOf(",", firstindex);
             findindex = secondindex;
             newurl = str.substring(firstindex, secondindex - 1);
             System.out.println(newurl);
-            urls.add(newurl);
+            if(parity) {
+                post_url.add(newurl);
+                parity = false;
+            }else{
+                pick_url.add(newurl);
+                parity = true;
+            }
         }
-        return urls;
     }
     /*void getdomain(String str){
         int urlindex = str.indexOf("url");
@@ -72,10 +95,10 @@ public class Search{
         String edit_str = str.replace(" ","+");
         return edit_str;
     }
-    /*void writer(String str) throws IOException {
+    void writer(String str) throws IOException {
         //C:\Users\l\Documents\GitHub\Course_Work\txt\html_str
-        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\l\\Documents\\GitHub\\Course_Work\\txt\\html_str.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\lycey\\Documents\\GitHub\\Course_Work\\txt\\html_str.txt");
         fileOutputStream.write(str.getBytes());
         fileOutputStream.close();
-    }*/
+    }
 }
