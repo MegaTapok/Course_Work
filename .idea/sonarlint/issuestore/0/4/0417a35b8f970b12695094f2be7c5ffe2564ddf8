@@ -1,13 +1,4 @@
 
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÿÈºøÿÿÿÿ
-f	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åëÌ
-e	java:S117_"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çùÆ<
-u
-java:S1488_"`Immediately return this expression instead of assigning it to the temporary variable "edit_str".(çùÆ<
-c
-java:S2095d"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(¯Áí%
-d
-java:S20952"IUse try-with-resources or close this "InputStream" in a "finally" clause.(ºÃé°ÿÿÿÿÿ
 l
 java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(ôÝžÕýÿÿÿÿ
 m
@@ -37,3 +28,12 @@ java:S1659<")Declare "results_str" on a separate line.(åëÌ
 M	java:S106E"9Replace this use of System.out or System.err by a logger.(ð÷†T
 N	java:S106M"9Replace this use of System.out or System.err by a logger.(Ô…Ýþ
 V	java:S125W"<This block of commented-out lines of code should be removed.(ãÜÓ§ýÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÿÈºøÿÿÿÿ
+f	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åëÌ
+e	java:S117_"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çùÆ<
+u
+java:S1488_"`Immediately return this expression instead of assigning it to the temporary variable "edit_str".(çùÆ<
+i
+java:S2095d"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ïó¹£ýÿÿÿÿ
+d
+java:S20952"IUse try-with-resources or close this "InputStream" in a "finally" clause.(ºÃé°ÿÿÿÿÿ

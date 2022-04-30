@@ -97,7 +97,7 @@ public class Search{
     }
     void writer(String str) throws IOException {
         //C:\Users\l\Documents\GitHub\Course_Work\txt\html_str
-        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\lycey\\Documents\\GitHub\\Course_Work\\txt\\html_str.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream("html_str.txt");
         fileOutputStream.write(str.getBytes());
         fileOutputStream.close();
     }
