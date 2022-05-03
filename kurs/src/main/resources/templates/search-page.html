@@ -18,18 +18,20 @@
 <div style="text-align: center;" class="container mt-5 mb -5">
     <form action="/search" method="post">
         <input name="search_request" type="text" title="Введи инфу, чё тычешь то?"  placeholder="Введите запрос" class="form-control" /><br>
-        <input name="search_request" type="text" title="Введи инфу, чё тычешь то?"  placeholder="Введите запрос" class="form-control"/><br>
         <button type="submit" class="btn btn-success">Поиск </button><br>
     </form>
 </div>
 
 <hr class="featurette-divider">
 
-
     <div th:each="elem :${CollectedNewsPicks}"  class="alert alert-info mt-2">
         <a th:href="${elem.getPost_url()}" th:text="${elem.getPost_url()}" > </a>
         <img th:src="${elem.getPick_url()}" alt="">
+
+
     </div>
+
+
 <div th:insert="template-blocks/Footer.html :: footer "></div>
 </div>
 </body>
