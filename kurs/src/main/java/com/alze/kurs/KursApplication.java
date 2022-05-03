@@ -11,5 +11,8 @@ public class KursApplication {
 	public static void main(String[] args) throws IOException {
 
 		SpringApplication.run(KursApplication.class, args);
+
+
+
 	}
 }

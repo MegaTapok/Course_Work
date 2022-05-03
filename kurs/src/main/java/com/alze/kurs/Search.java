@@ -1,6 +1,10 @@
 package com.alze.kurs;
 
 
+import com.alze.kurs.db.CollectedNews;
+import com.alze.kurs.db.repository.CollectedNewsRep;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,8 +16,18 @@ public class Search{
 
     static String api_key;
 
-    static ArrayList<String> pick_url = new ArrayList<>();
-    static ArrayList<String> post_url = new ArrayList<>();
+    @Autowired
+    private CollectedNewsRep cnrep;
+
+    public ArrayList<String> getPick_url() {
+        return pick_url;
+    }
+    public ArrayList<String> getPost_url() {
+        return post_url;
+    }
+
+    ArrayList<String> pick_url = new ArrayList<>();
+    ArrayList<String> post_url = new ArrayList<>();
 
     public Search(String api_key){
         this.api_key = api_key;
@@ -27,13 +41,15 @@ public class Search{
         geturl(link);
         size=post_url.size();
         for(int i = 0; i <size; i++) {
-            //ссылка на статью
+            CollectedNews cp=new CollectedNews(post_url.get(i),pick_url.get(i));
+            cnrep.save(cp);  // Тут возникает ошибка java.lang.NullPointerException: Cannot invoke "com.alze.kurs.db.repository.CollectedNewsRep.save(Object)" because "this.cnrep" is null почему?
         }
-        size=pick_url.size();
+      /*  size=pick_url.size();
+        System.out.println(size+"Pick");
         for(int i = 0; i <size; i++) {
             //ссылка на превью
         }
-
+*/
     }
 
     public void localNews(String source, String linkpart) throws IOException {
@@ -50,7 +66,7 @@ public class Search{
         InputStream input = url.openStream();
         byte[] buffer = input.readAllBytes();
         String str = new String(buffer);
-        //System.out.println(str);
+        System.out.println(str);
         writer(str);
         return str;
     }
@@ -74,7 +90,7 @@ public class Search{
             secondindex = str.indexOf(",", firstindex);
             findindex = secondindex;
             newurl = str.substring(firstindex, secondindex - 1);
-            System.out.println(newurl);
+           // System.out.println(newurl);
             if(parity) {
                 post_url.add(newurl);
                 parity = false;
