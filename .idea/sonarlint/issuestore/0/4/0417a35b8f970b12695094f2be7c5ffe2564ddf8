@@ -1,4 +1,13 @@
 
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÿÈºøÿÿÿÿ
+f	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åëÌ
+l	java:S117_"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çùÆ<8ú¿×€‰0
+v
+java:S14884"[Immediately return this expression instead of assigning it to the temporary variable "str".(«Õ¨Øüÿÿÿÿ
+|
+java:S1488_"`Immediately return this expression instead of assigning it to the temporary variable "edit_str".(çùÆ<8û¿×€‰0
+d
+java:S20952"IUse try-with-resources or close this "InputStream" in a "finally" clause.(ºÃé°ÿÿÿÿÿ
 l
 java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(ôÝžÕýÿÿÿÿ
 m
@@ -26,14 +35,9 @@ java:S1659;"GDeclare "firstindex" and all following declarations on a separate 
 ?
 java:S1659<")Declare "results_str" on a separate line.(åëÌ
 M	java:S106E"9Replace this use of System.out or System.err by a logger.(ð÷†T
-N	java:S106M"9Replace this use of System.out or System.err by a logger.(Ô…Ýþ
-V	java:S125W"<This block of commented-out lines of code should be removed.(ãÜÓ§ýÿÿÿÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÿÈºøÿÿÿÿ
-f	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åëÌ
-e	java:S117_"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çùÆ<
-u
-java:S1488_"`Immediately return this expression instead of assigning it to the temporary variable "edit_str".(çùÆ<
-i
-java:S2095d"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ïó¹£ýÿÿÿÿ
-d
-java:S20952"IUse try-with-resources or close this "InputStream" in a "finally" clause.(ºÃé°ÿÿÿÿÿ
+E	java:S108L")Either remove or fill this block of code.(é«Íé8²»ã€‰0
+U	java:S106M"9Replace this use of System.out or System.err by a logger.(Ô…Ýþ8‰´Ú€‰0
+]	java:S125W"<This block of commented-out lines of code should be removed.(ãÜÓ§ýÿÿÿÿ8•À×€‰0
+X	java:S125b"<This block of commented-out lines of code should be removed.(‰Öö…8–À×€‰0
+Q
+java:S1128"5Remove this unused import 'java.io.FileOutputStream'.(˜«ªg8‰“Ý€‰0

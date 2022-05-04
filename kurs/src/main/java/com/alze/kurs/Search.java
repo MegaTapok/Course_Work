@@ -51,7 +51,7 @@ public class Search{
         byte[] buffer = input.readAllBytes();
         String str = new String(buffer);
         //System.out.println(str);
-        writer(str);
+        //writer(str);
         return str;
     }
 
@@ -71,9 +71,9 @@ public class Search{
         for(int i = 0; i <results*2; i++) {
             urlindex = str.indexOf("url",findindex);
             firstindex = str.indexOf("h", urlindex);
-            secondindex = str.indexOf(",", firstindex);
+            secondindex = str.indexOf(",", urlindex);
             findindex = secondindex;
-            newurl = str.substring(firstindex, secondindex - 1);
+            if(secondindex<firstindex){}else{newurl = str.substring(firstindex, secondindex - 1);}
             System.out.println(newurl);
             if(parity) {
                 post_url.add(newurl);
@@ -95,10 +95,12 @@ public class Search{
         String edit_str = str.replace(" ","+");
         return edit_str;
     }
-    void writer(String str) throws IOException {
+    /*void writer(String str) throws IOException {
         //C:\Users\l\Documents\GitHub\Course_Work\txt\html_str
         FileOutputStream fileOutputStream = new FileOutputStream("html_str.txt");
         fileOutputStream.write(str.getBytes());
         fileOutputStream.close();
-    }
+    }*/
 }
+
+
