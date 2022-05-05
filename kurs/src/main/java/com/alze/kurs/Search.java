@@ -1,11 +1,5 @@
 package com.alze.kurs;
 
-
-import com.alze.kurs.db.CollectedNews;
-import com.alze.kurs.db.repository.CollectedNewsRep;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.String;
@@ -16,15 +10,12 @@ public class Search{
 
     static String api_key;
 
-    @Autowired
-    private CollectedNewsRep cnrep;
-
     public ArrayList<String> getPick_url() {
         return pick_url;
-    }
+    };
     public ArrayList<String> getPost_url() {
         return post_url;
-    }
+    };
 
     ArrayList<String> pick_url = new ArrayList<>();
     ArrayList<String> post_url = new ArrayList<>();
@@ -34,22 +25,10 @@ public class Search{
     }
 
     public void worldNews(String source, String linkpart ) throws IOException {
-        int size=0;
         String link = "https://newsapi.org/v2/everything?q="+editor(source)+linkpart+api_key;
-        System.out.println(link);
+        //System.out.println(link);
         link = gotonews(link);
         geturl(link);
-        size=post_url.size();
-        for(int i = 0; i <size; i++) {
-            CollectedNews cp=new CollectedNews(post_url.get(i),pick_url.get(i));
-            cnrep.save(cp);  // Тут возникает ошибка java.lang.NullPointerException: Cannot invoke "com.alze.kurs.db.repository.CollectedNewsRep.save(Object)" because "this.cnrep" is null почему?
-        }
-      /*  size=pick_url.size();
-        System.out.println(size+"Pick");
-        for(int i = 0; i <size; i++) {
-            //ссылка на превью
-        }
-*/
     }
 
     public void localNews(String source, String linkpart) throws IOException {
@@ -66,8 +45,8 @@ public class Search{
         InputStream input = url.openStream();
         byte[] buffer = input.readAllBytes();
         String str = new String(buffer);
-        System.out.println(str);
-        writer(str);
+        //System.out.println(str);
+        //writer(str);
         return str;
     }
 
@@ -87,10 +66,10 @@ public class Search{
         for(int i = 0; i <results*2; i++) {
             urlindex = str.indexOf("url",findindex);
             firstindex = str.indexOf("h", urlindex);
-            secondindex = str.indexOf(",", firstindex);
+            secondindex = str.indexOf(",", urlindex);
             findindex = secondindex;
-            newurl = str.substring(firstindex, secondindex - 1);
-           // System.out.println(newurl);
+            if(secondindex<firstindex){}else{newurl = str.substring(firstindex, secondindex - 1);}
+            System.out.println(newurl);
             if(parity) {
                 post_url.add(newurl);
                 parity = false;
@@ -111,10 +90,10 @@ public class Search{
         String edit_str = str.replace(" ","+");
         return edit_str;
     }
-    void writer(String str) throws IOException {
+    /*void writer(String str) throws IOException {
         //C:\Users\l\Documents\GitHub\Course_Work\txt\html_str
         FileOutputStream fileOutputStream = new FileOutputStream("html_str.txt");
         fileOutputStream.write(str.getBytes());
         fileOutputStream.close();
-    }
+    }*/
 }

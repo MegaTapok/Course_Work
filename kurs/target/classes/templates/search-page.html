@@ -26,7 +26,7 @@
 
     <div th:each="elem :${CollectedNewsPicks}"  class="alert alert-info mt-2">
         <a th:href="${elem.getPost_url()}" th:text="${elem.getPost_url()}" > </a>
-        <img th:src="${elem.getPick_url()}" alt="">
+        <img th:src="${elem.getPick_url()}" alt=""  /> <!--Тут надо указать ссылку аля КАРТИНКА НЕ НАЙДЕНА -->
 
 
     </div>

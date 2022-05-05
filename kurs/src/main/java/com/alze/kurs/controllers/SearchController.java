@@ -27,12 +27,16 @@ public class SearchController {
 
     @PostMapping("/search")
     public String searchEngine(@RequestParam String search_request , Model model) throws IOException {
+        if(cnrepo.findById(0L) != null){cnrepo.deleteAll();};
         Search req = new Search("7d1f27c7099944e99b8fbb618f7cb2e7");
         req.worldNews(search_request, "&sortBy=popularity&language=ru&apiKey=");
+        int size=req.getPost_url().size();
+        for(int i = 0; i <size; i++)
+        {
+            cnrepo.save(new CollectedNews((long) i,req.getPost_url().get(i),req.getPick_url().get(i)));
+        };
         Iterable<CollectedNews> collectedNews=cnrepo.findAll();
         model.addAttribute("CollectedNewsPicks",collectedNews);
-
-        //System.out.println(search_request);
         return "search-page";
     }
 

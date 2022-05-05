@@ -2,11 +2,12 @@ package com.alze.kurs.db;
 
 import javax.persistence.*;
 
+
+@Table(name = "CollectedNews")
 @Entity
-@Table(name = "COLLECTEDNEWS")
 public class CollectedNews {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id", nullable = false)
     private Long id;
 
@@ -16,12 +17,18 @@ public class CollectedNews {
     @Column(name = "PK_URL")
     private String pick_url;
 
-    public CollectedNews() {
+    protected CollectedNews() {
     }
 
-    public CollectedNews(String pourl,String pickurl) {
-        this.post_url=pourl;
-        this.pick_url=pickurl;
+    public CollectedNews(Long id,String post_url,String pick_url) {
+        this.id=id;
+        this.post_url=post_url;
+        this.pick_url=pick_url;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("CollectedNews[id=%d, post_url='%s', pick_url='%s']", id, post_url, pick_url);
     }
 
     public Long getId() {
