@@ -14,16 +14,20 @@ public class CollectedNews {
     @Column(name = "PO_URL")
     private String post_url;
 
-    @Column(name = "PK_URL")
+    @Column(name = "PC_URL")
     private String pick_url;
+
+    @Column(name="Title")
+    private String title;
 
     protected CollectedNews() {
     }
 
-    public CollectedNews(Long id,String post_url,String pick_url) {
+    public CollectedNews(Long id,String post_url,String pick_url,String title) {
         this.id=id;
         this.post_url=post_url;
         this.pick_url=pick_url;
+        this.title=title;
     }
 
     @Override
@@ -48,6 +52,12 @@ public class CollectedNews {
     }
     public void setPick_url(String pick_url) {
         this.pick_url = pick_url;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String descpription) {
+        this.title = descpription;
     }
 }
 

@@ -1,7 +1,7 @@
 package com.alze.kurs.controllers;
 
-import com.alze.kurs.Search;
-import com.alze.kurs.db.CollectedNews;
+import com.alze.kurs.db.DbService;
+import com.alze.kurs.searchEngine.Search;
 import com.alze.kurs.db.repository.CollectedNewsRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ import java.io.IOException;
 public class SearchController {
 
     @Autowired
-    private CollectedNewsRep cnrepo;
+    private CollectedNewsRep cnRepo;
 
     @GetMapping("/search")
     public String searchPage( Model model) //@RequestParam(name="name", required=false, defaultValue="World") String name,
@@ -27,16 +27,14 @@ public class SearchController {
 
     @PostMapping("/search")
     public String searchEngine(@RequestParam String search_request , Model model) throws IOException {
-        if(cnrepo.findById(0L) != null){cnrepo.deleteAll();};
         Search req = new Search("7d1f27c7099944e99b8fbb618f7cb2e7");
+        DbService dbService = new DbService(cnRepo);
+        dbService.bdCheck();
         req.worldNews(search_request, "&sortBy=popularity&language=ru&apiKey=");
-        int size=req.getPost_url().size();
-        for(int i = 0; i <size; i++)
-        {
-            cnrepo.save(new CollectedNews((long) i,req.getPost_url().get(i),req.getPick_url().get(i)));
-        };
-        Iterable<CollectedNews> collectedNews=cnrepo.findAll();
-        model.addAttribute("CollectedNewsPicks",collectedNews);
+        System.out.println("Всего найдено - "+req.getSearchFinal().getTotalResults());
+        System.out.println("Размер массива - "+req.getSearchFinal().getArticles().size());
+        dbService.bdUpdate(req);
+        model.addAttribute("Collected",dbService.bdFindAll());
         return "search-page";
     }
 

@@ -24,9 +24,12 @@
 
 <hr class="featurette-divider">
 
-    <div th:each="elem :${CollectedNewsPicks}"  class="alert alert-info mt-2">
+    <div th:each="elem :${Collected}"  class="alert alert-info mt-2">
+        <h2 th:text="${elem.getTitle()}" style="text-align: center;"></h2>
+        <img th:src="${elem.getPick_url()}" alt=". ¯\_(ツ)_/¯ Простите, но картинки нет в базе данных ¯\_(ツ)_/¯ ." width="500" height="250" style="margin: 10px 10px 10px;max-width: 100%;"  />
         <a th:href="${elem.getPost_url()}" th:text="${elem.getPost_url()}" > </a>
-        <img th:src="${elem.getPick_url()}" alt=""  /> <!--Тут надо указать ссылку аля КАРТИНКА НЕ НАЙДЕНА -->
+
+
 
 
     </div>
