@@ -1,8 +1,9 @@
 package com.alze.kurs.searchEngine;
 
 import com.google.gson.Gson;
+
+import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.String;
 import java.net.URL;
 
@@ -27,7 +28,7 @@ public class Search{
     }
 
     public void localNews(String source, String linkPart) throws IOException {
-        String link = "https://newsapi.org/v2/top-headlines?"+editor(source)+linkPart+api_key;
+        String link = "https://newsapi.org/v2/top-headlines?q="+editor(source)+linkPart+api_key;
         link = goToNews(link);
         searchFinal = searchParse(link);
     }
@@ -38,7 +39,7 @@ public class Search{
 
     private String goToNews(String link) throws IOException {
         URL url = new URL(link);
-        InputStream input = url.openStream();
+        BufferedInputStream input = new BufferedInputStream(url.openStream());
         byte[] buffer = input.readAllBytes();
         return new String(buffer);
     }

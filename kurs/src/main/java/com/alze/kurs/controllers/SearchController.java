@@ -16,7 +16,7 @@ import java.io.IOException;
 public class SearchController {
 
     @Autowired
-    private CollectedNewsRep cnRepo;
+    DbService dbService = new DbService();
 
     @GetMapping("/search")
     public String searchPage( Model model) //@RequestParam(name="name", required=false, defaultValue="World") String name,
@@ -28,9 +28,8 @@ public class SearchController {
     @PostMapping("/search")
     public String searchEngine(@RequestParam String search_request , Model model) throws IOException {
         Search req = new Search("7d1f27c7099944e99b8fbb618f7cb2e7");
-        DbService dbService = new DbService(cnRepo);
         dbService.bdCheck();
-        req.worldNews(search_request, "&sortBy=popularity&language=ru&apiKey=");
+        req.worldNews(search_request, "&sortBy=popularity&language=ru&apiKey=");//тут работа с API а именно создание ссылки по запросу
         System.out.println("Всего найдено - "+req.getSearchFinal().getTotalResults());
         System.out.println("Размер массива - "+req.getSearchFinal().getArticles().size());
         dbService.bdUpdate(req);
