@@ -37,7 +37,8 @@ public class Search{
     }
 
     private String editor(String str){
-        return str.replace(" ","+");
+        if(str==""){return "today";}else{
+        return str.replace(" ","+");}
     }
 
     private String goToNews(String link) throws IOException {
