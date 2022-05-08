@@ -26,7 +26,7 @@
 
     <div th:each="elem :${Collected}"  class="row featurette mt-3 " style="border: 1px solid #f8f4ff; border-radius: 5px;background: #f0f8ff"> <!-- Output of the News from Database-->
         <div class="col-md-5 order-md-1">
-            <img th:src="${elem.getPick_url() ?: 'https://i.gifer.com/76cI.gif'}" alt=". ¯\_(ツ)_/¯ Простите, но наверное источник заблокирован в РФ ¯\_(ツ)_/¯ ." width="500" height="250" style="align-content: flex-start;max-width: 100%;"  /><!-- "-->
+            <img th:src="${elem.getPick_url() ?: 'https://i.gifer.com/76cI.gif'}" alt=". ¯\_(ツ)_/¯ Простите, но наверное источник заблокирован в РФ ¯\_(ツ)_/¯ ." width="500" height="250" style="align-content: flex-start;max-width: 100%;"  />
         </div>
 
         <div class="col-md-7 order-md-2">

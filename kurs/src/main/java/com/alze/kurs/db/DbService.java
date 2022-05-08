@@ -2,15 +2,16 @@ package com.alze.kurs.db;
 
 import com.alze.kurs.db.repository.CollectedNewsRep;
 import com.alze.kurs.searchEngine.Search;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 // Сервис по взаимодействию с H2 базой данных
 
 @Service
+@AllArgsConstructor
 public class DbService
 {
-    @Autowired
+
     private CollectedNewsRep cnRepo;
 
     public void bdCheck (){ if(cnRepo.findById(0L).isPresent()){cnRepo.deleteAll();}}
@@ -26,7 +27,5 @@ public class DbService
         return cnRepo.findAll();
     }
 
-    public DbService() {
 
-    }
 }

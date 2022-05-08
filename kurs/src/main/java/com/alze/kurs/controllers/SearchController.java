@@ -2,7 +2,7 @@ package com.alze.kurs.controllers;
 
 import com.alze.kurs.db.DbService;
 import com.alze.kurs.searchEngine.Search;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +14,10 @@ import java.io.IOException;
 // Констроллер обработчик поиска новостей
 
 @Controller
+@AllArgsConstructor
 public class SearchController {
 
-    @Autowired
-    DbService dbService = new DbService();
+    private DbService dbService;
 
     @GetMapping("/search")
     public String searchPage( Model model) //@RequestParam(name="name", required=false, defaultValue="World") String name,
