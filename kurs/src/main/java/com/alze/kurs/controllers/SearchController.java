@@ -20,19 +20,24 @@ public class SearchController {
     private DbService dbService;
 
     @GetMapping("/search")
-    public String searchPage( Model model) //@RequestParam(name="name", required=false, defaultValue="World") String name,
+    public String searchPage( Model model)
     {
         model.addAttribute("title", "Search Page");
         return "search-page";
     }
 
     @PostMapping("/search")
-    public String searchEngine(@RequestParam String search_request , Model model) throws IOException {
+    public String searchEngine(@RequestParam String search_request , Model model,@RequestParam String radio,@RequestParam String date_from, @RequestParam String date_to, @RequestParam String checkbox) throws IOException {
         Search req = new Search("58ca3be1363f4012a209bdc5e6ac87ec");
         dbService.bdCheck();
-        req.worldNews(search_request, "&sortBy=popularity&language=ru&apiKey=");//тут работа с API а именно создание ссылки по запросу
-        System.out.println("Всего найдено - "+req.getSearchFinal().getTotalResults());
-        System.out.println("Размер массива - "+req.getSearchFinal().getArticles().size());
+        System.out.println(radio);
+        System.out.println(checkbox);
+        System.out.println(date_from);
+        System.out.println(date_to);
+        System.out.println(checkbox.length());
+
+
+        req.worldNews(search_request, req.settingsSearch(date_from,date_to,checkbox,radio)+"language=ru&apiKey=");//тут работа с API а именно создание ссылки по запросу
         dbService.bdUpdate(req);
         model.addAttribute("Collected",dbService.bdFindAll());
         return "search-page";

@@ -15,6 +15,7 @@ public class CollectedNews {
     @Column(name = "PO_URL")
     private String post_url;
 
+    @Lob
     @Column(name = "PC_URL")
     private String pick_url;
 

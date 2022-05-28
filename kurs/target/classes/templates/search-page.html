@@ -17,28 +17,67 @@
 
 <div style="text-align: center;" class="container mt-5 mb -5">
     <form action="/search" method="post">
-        <input name="search_request" type="text" title="Введи инфу, чё тычешь то?"  placeholder="Введите запрос" class="form-control" /><br>
+        <input name="search_request" type="text" title="Введи инфу, чё тычешь то?"  placeholder="Введите запрос" class="form-control" />
+        <br>
+
+        <details style=" cursor: pointer;">
+            <summary>Фильтры поиска </summary>
+            <br>
+        <h4>Фильтры поиска </h4>
+        <div class="d-flex gap-5 justify-content-center">
+            <div class="list-group mx-0 w-auto">
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="checkbox" name="checkbox" value="pop" checked="">
+                    <span>По: (популярности, релевантности, новизне)</span>
+                </label>
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="checkbox" name="checkbox" value="data" >
+                    <span>По дате</span>
+                </label>
+                <label>
+                    <table>
+                        <tr><td><span>C  </span><input type="date" name="date_from" id="date_from">   </td> <td><span>По  </span> <input type="date" name="date_to" id="date_to">  </td></tr>
+                    </table>
+                </label>
+            </div>
+
+            <div class="list-group mx-0 w-auto">
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="radio" name="radio" id="radio1" value="1" checked="">
+                    <span>Популярность</span>
+                </label>
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="radio" name="radio" id="radio2" value="2">
+                    <span>Релевантность</span>
+                </label>
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="radio" name="radio" id="radio3" value="3">
+                    <span>Новизна</span>
+                </label>
+            </div>
+        </div>
+        </details>
+
+        <br>
         <button type="submit" class="btn btn-success">Поиск </button><br>
     </form>
 </div>
 
 <hr class="featurette-divider">
 
-    <div th:each="elem :${Collected}"  class="row featurette mt-3 " style="border: 1px solid #f8f4ff; border-radius: 5px;background: #f0f8ff"> <!-- Output of the News from Database-->
+    <!-- Output of the News from Database -->
+    <div th:each="elem :${Collected}"  class="row featurette mt-3 " style="border: 1px solid #f8f4ff; border-radius: 5px;background: #f0f8ff">
         <div class="col-md-5 order-md-1">
             <img th:src="${elem.getPick_url() ?: 'https://i.gifer.com/76cI.gif'}" alt=". ¯\_(ツ)_/¯ Простите, но наверное источник заблокирован в РФ ¯\_(ツ)_/¯ ." width="500" height="250" style="align-content: flex-start;max-width: 100%;"  />
         </div>
 
         <div class="col-md-7 order-md-2">
-            <h2 th:text="${elem.getTitle()}" style="text-align: left;" class="mt-2"></h2>
-            <p th:text="${elem.getDescription()}" style="text-align: left;margin: 5px 5px 5px 5px;" class="mt-1"></p>
-            <a th:href="${elem.getPost_url()}" target="_blank" style="text-align: left;margin-left: 5px"> Читать в источнике... </a>
+            <h2 th:text="${elem.getTitle()}" style="text-align: left;" class="card-title"></h2>
+            <p th:text="${elem.getDescription()}" style="text-align: left;margin: 5px 5px 5px 5px;" class="class="card-text""></p>
+            <a th:href="${elem.getPost_url()}" class="btn btn-primary" > Читать в источнике... </a>
         </div>
 
-
-
     </div>
-
 
     <hr class="featurette-divider">
 <div th:insert="template-blocks/Footer.html :: footer "></div>
