@@ -37,7 +37,7 @@ public class Search{
         searchFinal = searchParse(link);
     }
 
-    private String editor(String str){
+    public String editor(String str){
         if(str.equals("")){return "today&";}else{
             str=str.replace(" ","+");
             str+="&";
@@ -75,10 +75,8 @@ public class Search{
             default:break;
         }
         return datePart+sortPart;
-        /*if(data_from == null || data_to == null){dataPart="";}else{dataPart="from="+data_from+"&to="+data_to+"&";}
-        if(sort == null){sortPart="";}else{sortPart="sortBy="+sort+"&";}*/
     }
-    private String radioMethod(int rad)
+    public String radioMethod(int rad)
     {
         switch (rad)
         {
@@ -88,7 +86,7 @@ public class Search{
             default: return "";
         }
     };
-    private String dateMethod (String data_from, String data_to)
+    public String dateMethod(String data_from, String data_to)
     {
         if(data_from == null || data_to == null){return "";}else{return "from="+data_from+"&to="+data_to+"&";}
     };
