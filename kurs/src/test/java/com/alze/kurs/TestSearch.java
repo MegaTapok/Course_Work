@@ -11,7 +11,7 @@ public class TestSearch {
     public void TestEditor(){
         String str = "JUnit: Test passed";
         str=search.editor(str);
-        assertTrue((str=="today&")||(str.indexOf(" ")==-1));
+        assertTrue((str.indexOf(" ")==-1));
     }
 
     @Test
