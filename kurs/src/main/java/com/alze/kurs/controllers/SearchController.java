@@ -27,7 +27,7 @@ public class SearchController {
     }
 
     @PostMapping("/search")
-    public String searchEngine(@RequestParam String search_request , Model model,@RequestParam String radio,@RequestParam String date_from, @RequestParam String date_to, @RequestParam String checkbox) throws IOException {
+    public String searchEngine(@RequestParam(defaultValue = "") String search_request , Model model,@RequestParam String radio,@RequestParam(defaultValue = "") String date_from, @RequestParam(defaultValue = "") String date_to, @RequestParam(defaultValue = "") String checkbox) throws IOException {
         Search req = new Search("58ca3be1363f4012a209bdc5e6ac87ec");
         dbService.bdCheck();
         req.worldNews(search_request, req.settingsSearch(date_from,date_to,checkbox,radio)+"language=ru&apiKey=");//тут работа с API а именно создание ссылки по запросу
